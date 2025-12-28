@@ -10,9 +10,9 @@ const sendMail = async ({ name, email, subject, message }) => {
   });
 
   const mailOptions = {
-    from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+    from: email,
     to: process.env.EMAIL_USER,
-    replyTo: email,
+    replyTo: process.env.EMAIL_USER,
     subject: subject,
 
     html: `
