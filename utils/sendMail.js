@@ -12,7 +12,6 @@ const sendMail = async ({ name, email, subject, message }) => {
   const mailOptions = {
     from: email,
     to: process.env.EMAIL_USER,
-    replyTo: process.env.EMAIL_USER,
     subject: subject,
 
     html: `
