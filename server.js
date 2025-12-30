@@ -11,6 +11,9 @@ app.use(express.json());
 const contactRoutes = require("./routes/contactRoutes");
 app.use("/api", contactRoutes);
 
+const projectRoutes = require("./routes/projectRoutes");
+app.use("/api", projectRoutes);
+
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
