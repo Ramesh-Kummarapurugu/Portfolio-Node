@@ -48,8 +48,16 @@ const contactPageSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    aboutText: {
+    aboutIntro: {
+      type: String, 
+      required: true,
+    },
+    aboutName: {
       type: String,
+      required: true,
+    },
+    aboutDescription: {
+      type: String, 
       required: true,
     },
   },
