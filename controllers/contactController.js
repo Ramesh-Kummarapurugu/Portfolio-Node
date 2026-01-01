@@ -83,3 +83,40 @@ exports.getContact = async (req, res) => {
     });
   }
 };
+
+
+exports.updateContact = async (req, res) => {
+  try {
+    const updates = req.body;
+
+    const contact = await Contact.findOne();
+
+    if (!contact) {
+      return res.status(404).json({
+        success: false,
+        message: "Contact page content not found",
+      });
+    }
+
+    const updatedContact = await Contact.findByIdAndUpdate(
+      contact._id,
+      updates,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Contact page updated successfully",
+      data: updatedContact,
+    });
+  } catch (error) {
+    console.error("Update Contact Page Error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+};
