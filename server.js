@@ -14,6 +14,10 @@ app.use("/api", contactRoutes);
 const projectRoutes = require("./routes/projectRoutes");
 app.use("/api", projectRoutes);
 
+const homeRoutes = require("./routes/homeRoutes");
+app.use("/api", homeRoutes);
+
+
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
