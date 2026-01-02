@@ -4,6 +4,10 @@ exports.saveHome = async (req, res) => {
   try {
     const data = req.body;
 
+     if (req.file) {
+      data.profileImage = req.file.path; 
+    }
+
     let home = await Home.findOne();
 
     if (home) {
@@ -57,6 +61,10 @@ exports.getHome = async (req, res) => {
 exports.updateHome = async (req, res) => {
   try {
     const updates = req.body;
+
+    if (req.file) {
+      updates.profileImage = req.file.path; 
+    }
 
     const home = await Home.findOne();
 
