@@ -32,6 +32,11 @@ const aboutSchema = new mongoose.Schema(
             required: true,
         },
 
+        experienceTitle: {
+            type: String,
+            default: "Years Relevant Experience",
+        },
+
         skills: [
             {
                 name: String,

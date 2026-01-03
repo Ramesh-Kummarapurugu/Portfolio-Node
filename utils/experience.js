@@ -10,12 +10,17 @@ const calculateExperience = (startDate) => {
     months += 12;
   }
 
+  const decimal = Number(
+    (years + months / 12).toFixed(1)
+  );
+
   const label = `${years} year${years !== 1 ? "s" : ""} ${months} month${months !== 1 ? "s" : ""}`;
 
   return {
     years,
     months,
-    label,
+    label,      
+    decimal,   
   };
 };
 
