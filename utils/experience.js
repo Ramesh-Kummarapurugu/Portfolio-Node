@@ -1,20 +1,30 @@
 const calculateExperience = (startDate) => {
-    const start = new Date(startDate);
-    const now = new Date();
+  const start = new Date(startDate);
+  const now = new Date();
 
-    let years = now.getFullYear() - start.getFullYear();
-    let months = now.getMonth() - start.getMonth();
+  let years = now.getFullYear() - start.getFullYear();
+  let months = now.getMonth() - start.getMonth();
 
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
 
-    return {
-        years,
-        months,
-        label: `${years} year${years !== 1 ? "s" : ""} ${months} month${months !== 1 ? "s" : ""}`,
-    };
+  const label = `${years} year${years !== 1 ? "s" : ""} ${months} month${months !== 1 ? "s" : ""}`;
+
+  return {
+    years,
+    months,
+    label,
+  };
 };
 
-module.exports = calculateExperience;
+const applyExperienceToText = (text, experienceLabel) => {
+  if (!text) return text;
+  return text.replace("{{experience}}", experienceLabel);
+};
+
+module.exports = {
+  calculateExperience,
+  applyExperienceToText,
+};
