@@ -18,6 +18,9 @@ app.use("/api", projectRoutes);
 const homeRoutes = require("./routes/homeRoutes");
 app.use("/api", homeRoutes);
 
+const aboutRoutes = require("./routes/aboutRoutes");
+app.use("/api", aboutRoutes);
+
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 mongoose.connect(process.env.MONGO_URI)
